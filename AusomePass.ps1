@@ -60,7 +60,8 @@ function HashIt ([String] $InputString, $HashAlgo) {
 $website = read-host -prompt 'Enter Target (ex: Website, Server)'
 $secured_master_password = read-host -prompt 'Enter Master Password' -AsSecureString
 
-do { 
+do {
+    Add-Type -AssemblyName System.Windows.Forms
     $FileBrowser = New-Object System.Windows.Forms.OpenFileDialog -Property @{ 
         InitialDirectory = [Environment]::GetFolderPath('Desktop')
         Title = "Select something you own. This is used for password entropy."
